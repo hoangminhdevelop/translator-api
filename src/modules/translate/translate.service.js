@@ -25,6 +25,8 @@ export const translateText = async (
   const formatToJson = jsonStringToJson(result.text);
 
   return {
+    inputToken: result.usageMetadata?.promptTokenCount || 0,
+    outputToken: result.usageMetadata?.candidatesTokenCount || 0,
     examples: formatToJson.examples || [],
     translatedText: formatToJson.translatedText || "",
     other: {
