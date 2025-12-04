@@ -1,6 +1,7 @@
 export const getTranslatePrompt = (textNeedToTranslate, targetLanguage) => {
   return `
-- Classify the input is "${textNeedToTranslate}" text as:
+**Input to translate**: "${textNeedToTranslate}".
+- Classify the input as:
   1) single word, short phrase (<=3 words, no punctuation), slang, idiom.
   2) sentence/paragraph (otherwise)
 
