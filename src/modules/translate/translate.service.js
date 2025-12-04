@@ -13,7 +13,7 @@ export const translateText = async (
   targetLanguage = "Vietnamese"
 ) => {
   const prompt = getTranslatePrompt(textNeedToTranslate, targetLanguage);
-
+  console.log("prompt", prompt);
   const result = await geminiAI.models.generateContent({
     model: MODEL,
     contents: prompt,
@@ -21,7 +21,7 @@ export const translateText = async (
       maxOutputTokens: 500,
     },
   });
-
+  console.log("result.text", result.text);
   const formatToJson = jsonStringToJson(result.text);
 
   return {

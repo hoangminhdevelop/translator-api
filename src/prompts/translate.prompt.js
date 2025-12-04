@@ -1,6 +1,6 @@
 export const getTranslatePrompt = (textNeedToTranslate, targetLanguage) => {
   return `
-- Classify the input "${textNeedToTranslate}" as:
+- Classify the input is "${textNeedToTranslate}" text as:
   1) single word, short phrase (<=3 words, no punctuation), slang, idiom.
   2) sentence/paragraph (otherwise)
 
@@ -32,17 +32,10 @@ export const getTranslatePrompt = (textNeedToTranslate, targetLanguage) => {
   • Sentence example format: original sentence (translated sentence). Create 3 examples.
   • No comments or explanations.
   • Do not change field names.
-  • JSON must use double quotes only.
+  • JSON only and JSON must use double quotes only.
   • For case (1): all returned forms in "other" must follow strict format: wordForm (translatedWordForm). Each item must include its own translation, no exceptions. Multiple items separated by comma. If no valid form exists, return "N/A".
       Example interpretation:
-        Input: "go"
-        noun: "go (translation), going (translation)"
-        verb: "go (translation), went (translation), gone (translation)"
-        adj: "going (translation), gone (translation)"
-
-        Input: "relate"
-        noun: "relation (translation), relationship (translation)"
-        verb: "relate (translation), related (translation), relating (translation)"
-        adj: "related (translation)"
+        Input: "go" => noun: "go (translation), going (translation)",  verb: "go (translation), went (translation), gone (translation)", adj: "going (translation), gone (translation)"
+        Input: "relate" => noun: "relation (translation), relationship (translation)", verb: "relate (translation), related (translation), relating (translation)", adj: "related (translation)"
 `;
 };
